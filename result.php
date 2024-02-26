@@ -38,16 +38,16 @@ $hotels = [
     ],
 ];
 
-$filter_hotels = [];
 
 $filter_selected = !empty($_GET);
 
+$filter_hotels = [];
 
 
 if ($filter_selected) {
     $parking_filter = $_GET["parking"];
 
-    if ($parking_filter == "si") {
+    if ($parking_filter == "yes") {
         $filter_value = true;
     } elseif ($parking_filter == "no") {
         $filter_value = false;
@@ -55,12 +55,12 @@ if ($filter_selected) {
         $filter_value = "all";
     };
 
-    $vote_filter = $_GET["stars"];
+    $star_filter = $_GET["stars"];
 
     foreach ($hotels as $hotel) {
-        if ($hotel["parking"] === $filter_value && $hotel["vote"] >= $vote_filter || $hotel["parking"] === $filter_value && $vote_filter == "all" || $filter_value == "all" && $hotel["vote"] >= $vote_filter) {
+        if ($hotel["parking"] === $filter_value && $hotel["vote"] >= $star_filter || $hotel["parking"] === $filter_value && $star_filter == "all" || $filter_value == "all" && $hotel["vote"] >= $star_filter) {
             $filter_hotels[] = $hotel;
-        } elseif ($parking_filter == "all" && $vote_filter == "all") {
+        } elseif ($parking_filter == "all" && $star_filter == "all") {
             $filter_hotels = $hotels;
         }
     };

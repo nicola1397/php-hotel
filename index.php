@@ -20,7 +20,7 @@
     <label for="star-select">Stelle:</label>
 
 <select name="stars" id="star-select">
-  <option value="">Scegli un'opzione</option>
+  <option value="all">Scegli un'opzione</option>
   <option value="2+">2+ stelle</option>
   <option value="3+">3+ stelle</option>
   <option value="4+">4+ stelle</option>
